@@ -25,7 +25,6 @@ DEFINES += CONFIG_EVM_ECMA_MATH
 INCLUDEPATH += $$PWD/../../include
 
 include($$PWD/../../ecma/ecma.pri)
-LIBS += $$PWD/../../lib/x86-linux/libejs.a
 
 exists($$PWD/../main.c) {
     SOURCES += \
@@ -36,3 +35,24 @@ exists($$PWD/main.c) {
     SOURCES += \
         main.c
 }
+
+SOURCES += \
+    ../../../evm/libevm/compiler.c \
+    ../../../evm/libevm/evm.c \
+    ../../../evm/libevm/executable.c \
+    ../../../evm/libevm/gc.c \
+    ../../../evm/libevm/jsparser.c \
+    ../../../evm/libevm/native.c \
+    ../../../evm/libevm/pyparser.c \
+    ../../../evm/libevm/qmlparser.c \
+    ../../../evm/libevm/xmlparser.c \
+    ../../../evm/native/repl/evm_repl_history.c \
+    ../../../evm/native/repl/evm_repl.c \
+    ../../../evm/native/repl/rbuff.c
+
+HEADERS += \
+    ../../../evm/native/repl/evm_repl_history.h \
+    ../../../evm/native/repl/evm_repl.h \
+    ../../../evm/native/repl/rbuff.h
+
+DISTFILES +=

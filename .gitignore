@@ -8,17 +8,12 @@
 *.so
 *.dylib
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
 
 # Executables
 *.exe
 *.out
 *.app
-Makefile
-Makefile.*
+
 *.Debug
 *.Release
 *.rc
@@ -33,4 +28,3 @@ build/
 *.pro.user
 vm.pro.user
 vm.pro.user.*
-thirds/littlevgl_qml/ports/Qt/build
