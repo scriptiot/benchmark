@@ -272,9 +272,7 @@ extern int ecma_module(evm_t * e);
 /****************终端提示信息***************/
 void help(void)
 {
-    printf(QMAKE_TARGET " version " QMAKE_VERSION "\n"
-           "usage: " QMAKE_TARGET " [file.js]\n"
-    );
+    printf("usage: ejs [file.js]\n");
 }
 
 evm_val_t evm_native_clock(evm_t * e, evm_val_t * p, int argc, evm_val_t * v){
@@ -327,7 +325,7 @@ int main(int argc, char *argv[])
     err = evm_boot(env, argv[1]);
 
     if (err == ec_no_file){
-        printf(QMAKE_TARGET": can't open file '%s': [Errno 2] No such file or directory\n", argv[1]);
+        printf("can't open file '%s': [Errno 2] No such file or directory\n", argv[1]);
         exit(1);
     }
 
