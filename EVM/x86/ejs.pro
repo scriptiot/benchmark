@@ -53,6 +53,8 @@ SOURCES += \
 HEADERS += \
     ../../../evm/native/repl/evm_repl_history.h \
     ../../../evm/native/repl/evm_repl.h \
-    ../../../evm/native/repl/rbuff.h
+    ../../../evm/native/repl/rbuff.h \
+    ../../include/evm_type.h \
+    ../../include/evm.h
 
 DISTFILES +=

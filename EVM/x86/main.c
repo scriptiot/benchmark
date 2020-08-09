@@ -283,8 +283,8 @@ evm_val_t evm_native_clock(evm_t * e, evm_val_t * p, int argc, evm_val_t * v){
     return evm_mk_number((float)clock()/CLOCKS_PER_SEC);
 }
 
-#define EVM_HEAP_SIZE   (2 * 1000 * 1024)
-#define EVM_STACK_SIZE   (1000 * 1024)
+#define EVM_HEAP_SIZE   (200 * 1000 * 1024)
+#define EVM_STACK_SIZE   (10 * 1000 * 1024)
 #define EVM_MODULE_SIZE   (5)
 
 int main(int argc, char *argv[])

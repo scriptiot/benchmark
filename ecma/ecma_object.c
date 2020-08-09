@@ -349,15 +349,15 @@ evm_val_t ecma_object_getOwnPropertyNames(evm_t * e, evm_val_t * p, int argc, ev
 
 
 evm_val_t * ecma_object_init(evm_t * e){
-    evm_val_t * o = evm_native_function_create(e, (evm_native_fn)ecma_object_new, ECMA_OBJECT_PROP_SIZE);
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE, "prototype", *ecma_object_prototype);
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE + 1, "create", evm_mk_native((intptr_t)ecma_object_create));
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE + 2, "keys", evm_mk_native((intptr_t)ecma_object_keys));
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE + 3, "values", evm_mk_native((intptr_t)ecma_object_values));
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE + 4, "entries", evm_mk_native((intptr_t)ecma_object_entries));
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE + 5, "getPrototypeOf", evm_mk_native((intptr_t)ecma_object_getPrototypeOf));
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE + 6, "getOwnPropertyNames", evm_mk_native((intptr_t)ecma_object_getOwnPropertyNames));
-    evm_attr_set(e, o, ECMA_OBJECT_PROP_SIZE + 7, "__proto__", *ecma_function_prototype);
+    evm_val_t * o = evm_native_function_create(e, (evm_native_fn)ecma_object_new, ECMA_OBJECT_ATTR_SIZE);
+    evm_attr_set(e, o, 0, "prototype", *ecma_object_prototype);
+    evm_attr_set(e, o, 1, "create", evm_mk_native((intptr_t)ecma_object_create));
+    evm_attr_set(e, o, 2, "keys", evm_mk_native((intptr_t)ecma_object_keys));
+    evm_attr_set(e, o, 3, "values", evm_mk_native((intptr_t)ecma_object_values));
+    evm_attr_set(e, o, 4, "entries", evm_mk_native((intptr_t)ecma_object_entries));
+    evm_attr_set(e, o, 5, "getPrototypeOf", evm_mk_native((intptr_t)ecma_object_getPrototypeOf));
+    evm_attr_set(e, o, 6, "getOwnPropertyNames", evm_mk_native((intptr_t)ecma_object_getOwnPropertyNames));
+    evm_attr_set(e, o, 7, "__proto__", *ecma_function_prototype);
     evm_set_parent(o, ecma_function_prototype);
     return o;
 }

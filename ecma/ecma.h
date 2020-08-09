@@ -18,7 +18,7 @@
 #include "evm.h"
 
 #ifdef CONFIG_EVM_ECMA_OBJECT
-#define ECMA_OBJECT_ATTR_SIZE   6
+#define ECMA_OBJECT_ATTR_SIZE   8
 #define ECMA_OBJECT_PROP_SIZE   9
 extern evm_val_t * ecma_Object;
 #endif
