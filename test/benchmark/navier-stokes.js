@@ -688,3 +688,4 @@ function Run() {
 }
 
 Run();
+show();

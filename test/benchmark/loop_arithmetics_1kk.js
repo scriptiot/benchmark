@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+print('--begin test--')
 var count = 1000000;
 var x = 7;
 var y = 3;
@@ -28,3 +28,4 @@ for (var i = 0; i < count; i++)
   tmp3 = tmp1 * tmp1;
   tmp4 = tmp2 * tmp2;
 }
+print('--end test--')
