@@ -288,6 +288,7 @@ BenchmarkSuite.prototype.RunStep = function(runner) {
  * operating system.
  **/
 function runRichards() {
+
   var scheduler = new Scheduler();
   scheduler.addIdleTask(ID_IDLE, 0, null, COUNT);
 
@@ -300,6 +301,7 @@ function runRichards() {
   queue = new Packet(queue,  ID_DEVICE_A, KIND_DEVICE);
   queue = new Packet(queue,  ID_DEVICE_A, KIND_DEVICE);
   scheduler.addHandlerTask(ID_HANDLER_A, 2000, queue);
+
 
   queue = new Packet(null, ID_DEVICE_B, KIND_DEVICE);
   queue = new Packet(queue,  ID_DEVICE_B, KIND_DEVICE);
@@ -565,10 +567,31 @@ TaskControlBlock.prototype.markAsRunnable = function () {
   this.state = this.state | STATE_RUNNABLE;
 };
 
+
+function test(){
+  var a = 100;
+  Object.a = 100;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+  Object.a = Object.a;
+}
 /**
  * Runs this task, if it is ready to be run, and returns the next task to run.
  */
 TaskControlBlock.prototype.run = function () {
+  //test();
   var packet;
   if (this.state == STATE_SUSPENDED_RUNNABLE) {
     packet = this.queue;

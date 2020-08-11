@@ -100,12 +100,12 @@ evm_val_t object_prototype_valueOf(evm_t * e, evm_val_t * p, int argc, evm_val_t
 }
 
 void ecma_object_attrs_set(evm_t * e, evm_val_t * o, evm_val_t * object, evm_val_t * prototype){
-    evm_attr_set(e, o, 0, "__proto__", *prototype);
-    evm_attr_set(e, o, 1, "constructor", *object);
-    evm_attr_set(e, o, 2, "hasOwnProperty", evm_mk_native((intptr_t)object_prototype_hasOwnProperty));
-    evm_attr_set(e, o, 3, "isPrototypeOf", evm_mk_native((intptr_t)object_prototype_isPrototypeOf));
-    evm_attr_set(e, o, 4, "toString", evm_mk_native((intptr_t)object_prototype_toString));
-    evm_attr_set(e, o, 5, "valueOf", evm_mk_native((intptr_t)object_prototype_valueOf));
+    evm_attr_set_key_value(e, o, 0, ecma_hash___proto__, *prototype);
+    evm_attr_set_key_value(e, o, 1, ecma_hash_constructor, *object);
+    evm_attr_set_key_value(e, o, 2, ecma_hash_hasOwnProperty, evm_mk_native((intptr_t)object_prototype_hasOwnProperty));
+    evm_attr_set_key_value(e, o, 3, ecma_hash_isPrototypeOf, evm_mk_native((intptr_t)object_prototype_isPrototypeOf));
+    evm_attr_set_key_value(e, o, 4, ecma_hash_toString, evm_mk_native((intptr_t)object_prototype_toString));
+    evm_attr_set_key_value(e, o, 5, ecma_hash_valueOf, evm_mk_native((intptr_t)object_prototype_valueOf));
 }
 
 void ecma_object_attrs_apply(evm_t * e, evm_val_t * o, evm_val_t * prototype){
@@ -144,7 +144,7 @@ evm_val_t ecma_object_create(evm_t * e, evm_val_t * p, int argc, evm_val_t * v){
     if( argc == 1 && evm_is_null(v)){
         o = evm_object_create(e, GC_DICT, 0, 0);
         ecma_object_attrs_apply(e, o, v);
-        evm_attr_set(e, o,  0, "__proto__", evm_mk_null());
+        evm_attr_set_key_value(e, o,  0, ecma_hash___proto__, evm_mk_null());
         return *o;
     } else if(argc == 1 && evm_is_object(v) ){
         o = evm_object_create(e, GC_DICT, 0, 0);

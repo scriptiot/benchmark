@@ -18,7 +18,7 @@
 #include "evm.h"
 
 #ifdef CONFIG_EVM_ECMA_OBJECT
-#define ECMA_OBJECT_ATTR_SIZE   8
+#define ECMA_OBJECT_ATTR_SIZE   6
 #define ECMA_OBJECT_PROP_SIZE   9
 extern evm_val_t * ecma_Object;
 #endif
@@ -55,5 +55,28 @@ extern evm_val_t * ecma_function_prototype;
 extern evm_val_t * ecma_object_prototype;
 
 int ecma_module(evm_t * e);
+
+extern uint16_t ecma_hash_constructor;
+extern uint16_t ecma_hash_prototype;
+extern uint16_t ecma_hash_call;
+extern uint16_t ecma_hash___proto__;
+extern uint16_t ecma_hash_hasOwnProperty;
+extern uint16_t ecma_hash_isPrototypeOf;
+extern uint16_t ecma_hash_toString;
+extern uint16_t ecma_hash_valueOf;
+extern uint16_t ecma_hash_length;
+extern uint16_t ecma_hash_push;
+extern uint16_t ecma_hash_pop;
+extern uint16_t ecma_hash_concat;
+extern uint16_t ecma_hash_fill;
+extern uint16_t ecma_hash_indexOf;
+extern uint16_t ecma_hash_shift;
+extern uint16_t ecma_hash_slice;
+extern uint16_t ecma_hash_copyWithin;
+extern uint16_t ecma_hash_unshift;
+extern uint16_t ecma_hash_filter;
+extern uint16_t ecma_hash_map;
+extern uint16_t ecma_hash_find;
+extern uint16_t ecma_hash_join;
 
 #endif

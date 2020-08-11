@@ -1197,3 +1197,4 @@ function Run() {
 }
 
 Run();
+show();
