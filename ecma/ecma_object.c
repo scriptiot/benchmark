@@ -123,8 +123,6 @@ evm_val_t *index_2_string(evm_t * e, int index){
     return so;
 }
 
-evm_val_t ecma_object_create(evm_t * e, evm_val_t * p, int argc, evm_val_t * v);
-
 evm_val_t ecma_object_new(evm_t * e, evm_val_t * p, int argc, evm_val_t * v){
     EVM_UNUSED(p);
     evm_val_t * o;

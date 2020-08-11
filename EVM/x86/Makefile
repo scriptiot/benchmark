@@ -1,6 +1,6 @@
 CC			=gcc
 DEFINES     = -DEVM_LANG_ENABLE_JAVASCRIPT -DEVM_LANG_ENABLE_REPL -DCONFIG_EVM_ECMA_OBJECT -DCONFIG_EVM_ECMA_ARRAY -DCONFIG_EVM_ECMA_NUMBER -DCONFIG_EVM_ECMA_STRING -DCONFIG_EVM_ECMA_MATH
-CFLAGS      = -pipe -ffunction-sections -fdata-sections -g -Wall -W -fPIC -Wl,--strip-all $(DEFINES)
+CFLAGS      = -funroll-loops -O2 -pipe -ffunction-sections -fdata-sections -g -Wall -W -fPIC -Wl,--strip-all $(DEFINES)
 INCLUDES  	+=-I../../include
 LIB_NAMES 	=-lejs -lm
 LIB_PATH 	=-L../../lib/x86-linux
