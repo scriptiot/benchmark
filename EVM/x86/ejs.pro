@@ -6,7 +6,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 CONFIG(release, release|debug) {
-    QMAKE_CFLAGS += -O2 -std=c99  -ffunction-sections -fdata-sections  -fno-asynchronous-unwind-tables -Wl,--gc-sections -Wl,--strip-all
+    QMAKE_CFLAGS += -O3 -std=c99  -ffunction-sections -fdata-sections  -fno-asynchronous-unwind-tables -Wl,--gc-sections -Wl,--strip-all
     QMAKE_LFLAGS += -Wl,--gc-sections -Wl,--strip-all
 } else {
     QMAKE_CFLAGS += -ffunction-sections -fdata-sections
