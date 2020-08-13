@@ -1,3 +1,0 @@
-# benchmark
-
-EVM benchmark testsuite
