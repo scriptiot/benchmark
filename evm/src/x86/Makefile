@@ -2,9 +2,9 @@ PWD			=$(shell pwd)
 OS			=$(shell uname -s)
 LINUX		=Linux
 CC			=gcc
-DEFINES     = -DEVM_LANG_ENABLE_JAVASCRIPT -DEVM_LANG_ENABLE_REPL -DCONFIG_EVM_ECMA_OBJECT -DCONFIG_EVM_ECMA_ARRAY -DCONFIG_EVM_ECMA_NUMBER -DCONFIG_EVM_ECMA_STRING -DCONFIG_EVM_ECMA_MATH
+DEFINES     = -DEVM_ENABLE_TIME_DEBUG -DEVM_LANG_ENABLE_JAVASCRIPT -DEVM_LANG_ENABLE_REPL -DCONFIG_EVM_ECMA_OBJECT -DCONFIG_EVM_ECMA_ARRAY -DCONFIG_EVM_ECMA_NUMBER -DCONFIG_EVM_ECMA_STRING -DCONFIG_EVM_ECMA_MATH
 CFLAGS      = -pipe -ffunction-sections -fdata-sections -g -Wall -W -fPIC -Wl,--strip-all $(DEFINES)
-INCLUDES  	+=-I./include
+INCLUDES  	+=-I./include -I./evmbench
 LIB_NAMES 	=-lejs -lm
 
 ifeq ($(OS), $(LINUX))
@@ -30,6 +30,7 @@ SOURCES       = ./ecma/ecma_object.c \
 		./ecma/ecma.c \
 		./ecma/ecma_number.c \
 		./ecma/ecma_string.c \
+		./evmbench/evmbench.c \
 		main.c
 
 #links

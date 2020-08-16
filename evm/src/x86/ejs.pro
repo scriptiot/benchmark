@@ -21,8 +21,10 @@ DEFINES += CONFIG_EVM_ECMA_ARRAY
 DEFINES += CONFIG_EVM_ECMA_NUMBER
 DEFINES += CONFIG_EVM_ECMA_STRING
 DEFINES += CONFIG_EVM_ECMA_MATH
+DEFINES += EVM_ENABLE_TIME_DEBUG
 
 INCLUDEPATH += $$PWD/include
+INCLUDEPATH += $$PWD/evmbench
 
 include($$PWD/ecma/ecma.pri)
 
@@ -48,13 +50,15 @@ SOURCES += \
     ../../../../evm/libevm/xmlparser.c \
     ../../../../evm/native/repl/evm_repl_history.c \
     ../../../../evm/native/repl/evm_repl.c \
-    ../../../../evm/native/repl/rbuff.c
+    ../../../../evm/native/repl/rbuff.c \
+    evmbench/evmbench.c
 
 HEADERS += \
     ../../../../evm/native/repl/evm_repl_history.h \
     ../../../../evm/native/repl/evm_repl.h \
     ../../../../evm/native/repl/rbuff.h \
     ./include/evm_type.h \
-    ./include/evm.h
+    ./include/evm.h \
+    evmbench/evmbench.h
 
 DISTFILES +=

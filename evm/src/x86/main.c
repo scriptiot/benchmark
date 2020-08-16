@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "evm.h"
+#include "evmbench.h"
 #include <time.h>
 
 
@@ -308,6 +309,10 @@ int main(int argc, char *argv[])
         {NULL, EVM_VAL_UNDEFINED}
     };
     evm_native_add(env, natives);
+
+#ifdef EVM_ENABLE_TIME_DEBUG
+    evmbench_module(env);
+#endif
 
     if (argc == 1){
         help();
