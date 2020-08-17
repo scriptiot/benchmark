@@ -41321,6 +41321,37 @@ static JSValue js___date_now(JSContext *ctx, JSValueConst this_val,
 }
 #endif
 
+static JSValue js_clock(JSContext *ctx, JSValueConst this_val,
+                               int argc, JSValueConst *argv)
+{
+    float d = (float)clock()/CLOCKS_PER_SEC;
+    return __JS_NewFloat64(ctx, d);
+}
+
+double clock_func(clock_t start_t, clock_t end_t){
+    double total_t;
+    total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
+    return total_t;
+}
+
+static JSValue sum(JSContext *ctx, JSValueConst this_val,
+                               int argc, JSValueConst *argv)
+{
+    int start=0, end=0;
+    JS_ToInt64(ctx, &start, argv[0]);
+    JS_ToInt64(ctx, &end, argv[1]);
+    clock_t start_t = clock();
+
+    int ret=0;
+    for(int i=start; i<=end; i++){
+        ret += i;
+    }
+
+    clock_t end_t = clock();
+    double t =  clock_func(start_t, end_t);
+    return __JS_NewFloat64(ctx, t);
+}
+
 /* OS dependent: return the UTC time in microseconds since 1970. */
 static JSValue js___date_clock(JSContext *ctx, JSValueConst this_val,
                                int argc, JSValueConst *argv)
@@ -47202,6 +47233,8 @@ static const JSCFunctionListEntry js_global_funcs[] = {
 
     /* for the 'Date' implementation */
     JS_CFUNC_DEF("__date_clock", 0, js___date_clock ),
+    JS_CFUNC_DEF("clock", 0, js_clock ),
+    JS_CFUNC_DEF("sum", 0, sum ),
     //JS_CFUNC_DEF("__date_now", 0, js___date_now ),
     //JS_CFUNC_DEF("__date_getTimezoneOffset", 1, js___date_getTimezoneOffset ),
     //JS_CFUNC_DEF("__date_create", 3, js___date_create ),
